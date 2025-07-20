@@ -61,3 +61,75 @@ Utilisé ici pour PostgreSQL : chaque service a une base Postgres isolée, exéc
 4. Tous les appels sont tracés par Zipkin.  
 5. Chaque service s’est enregistré dans Eureka.  
 6. Chaque service a chargé sa config depuis le Config Server au démarrage.  
+
+
+## 🚀Application
+
+Ce projet regroupe plusieurs applications **microservices** développées avec **Spring Boot**, conçues pour démontrer une architecture distribuée moderne, modulaire et scalable.
+
+---
+
+## 🧩 Microservices inclus
+
+| Microservice        | Description                                 |
+|---------------------|---------------------------------------------|
+| **auth-service**     | Gère l’authentification (JWT, sécurité)     |
+| **user-service**     | Gestion des utilisateurs                    |
+| **product-service**  | Gestion des produits                        |
+| **order-service**    | Gestion des commandes                       |
+| **gateway-service**  | Point d’entrée (API Gateway)                |
+| **discovery-service**| Service de découverte (Eureka)             |
+| **config-server**    | Configuration centralisée                   |
+| **zipkin-server**    | Suivi et traçabilité des appels distribués |
+
+---
+
+## ✅ Résumé des avantages
+
+| Composant         | Avantage principal                                                   |
+|-------------------|----------------------------------------------------------------------|
+| **API Gateway**        | Point d’entrée unique, sécurité et routage                           |
+| **Eureka Discovery**   | Scalabilité et auto-découverte                                       |
+| **Config Server**      | Configuration centralisée, maintenabilité                            |
+| **Zipkin**             | Traçabilité des requêtes, observabilité                              |
+| **Docker**             | Isolation et portabilité des bases de données                        |
+
+---
+
+## ⚙️ Technologies utilisées
+
+- **Java 17 / Spring Boot 3**
+- **Spring Cloud** (Config, Eureka, Gateway)
+- **Spring Security + JWT**
+- **Docker / Docker Compose**
+- **Zipkin pour le tracing distribué**
+- **PostgreSQL / H2**
+- **Maven**
+
+---
+
+## 📦 Prérequis
+
+- [Java 17+](https://adoptium.net/)
+- [Docker](https://www.docker.com/)
+- [Maven](https://maven.apache.org/)
+- [Postman](https://www.postman.com/) (pour tester les API)
+
+---
+
+## 🚀 Lancer l’architecture
+
+```bash
+# Cloner le projet
+git clone https://github.com/ton-utilisateur/spring-microservices-architecture.git
+cd spring-microservices-architecture
+
+# Lancer les conteneurs (base de données, config, discovery, zipkin, etc.)
+docker-compose up
+
+# Puis lancer chaque microservice avec Maven
+cd auth-service
+mvn spring-boot:run
+
+cd ../user-service
+mvn spring-boot:run
