@@ -3,10 +3,10 @@ eureka:
     hostname: localhost
     port: ${server.port}
   client:
-    registerWithEureka: false
-    fetch-registry: false
+    registerWithEureka: false   # Ne pas enregistrer ce serveur auprès d’un autre Eureka
+    fetch-registry: false      # Ne pas récupérer les services d’un autre Eureka
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/  # L’URL de la zone par défaut (utile si on avait un autre Eureka, ici juste pour cohérence)
 server:
   port: 8761
 spring:

@@ -1,0 +1,25 @@
+eureka:
+  instance:
+    hostname: localhost
+    port:
+      http: 8761 # (Optionnel) Port auquel Eureka est supposé répondre — utile dans certains cas
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka # URL du Eureka Server où ce microservice va s'enregistrer
+spring:
+  application:
+    name: student
+
+  config:
+    import: optional:configserver://localhost:8888
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+server:
+  port: 8090
